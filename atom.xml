@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Daniel Glatstein's Blog]]></title>
+  <link href="http://danielglatstein.github.io/atom.xml" rel="self"/>
+  <link href="http://danielglatstein.github.io/"/>
+  <updated>2015-09-28T17:49:13-04:00</updated>
+  <id>http://danielglatstein.github.io/</id>
+  <author>
+    <name><![CDATA[Daniel Glatstein]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[My First Post on Octopress]]></title>
+    <link href="http://danielglatstein.github.io/blog/2015/09/28/my-first-post-on-octopress/"/>
+    <updated>2015-09-28T17:46:20-04:00</updated>
+    <id>http://danielglatstein.github.io/blog/2015/09/28/my-first-post-on-octopress</id>
+    <content type="html"><![CDATA[<p>Hello, World.</p>
+]]></content>
+  </entry>
+  
+</feed>
