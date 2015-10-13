@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Flatiron | Daniel Glatstein's Blog]]></title>
+  <title><![CDATA[Category: flatiron | Daniel Glatstein's Blog]]></title>
   <link href="http://danielglatstein.github.io/blog/categories/flatiron/atom.xml" rel="self"/>
   <link href="http://danielglatstein.github.io/"/>
-  <updated>2015-09-28T17:49:13-04:00</updated>
+  <updated>2015-10-13T17:54:26-04:00</updated>
   <id>http://danielglatstein.github.io/</id>
   <author>
     <name><![CDATA[Daniel Glatstein]]></name>
@@ -14,11 +14,47 @@
 
   
   <entry>
-    <title type="html"><![CDATA[My First Post on Octopress]]></title>
+    <title type="html"><![CDATA[My First Post On Octopress]]></title>
     <link href="http://danielglatstein.github.io/blog/2015/09/28/my-first-post-on-octopress/"/>
     <updated>2015-09-28T17:46:20-04:00</updated>
     <id>http://danielglatstein.github.io/blog/2015/09/28/my-first-post-on-octopress</id>
-    <content type="html"><![CDATA[<p>Hello, World.</p>
+    <content type="html"><![CDATA[<p>Spatial metaphors permeate our thoughts and language. Take the phrase “the meeting is AT 3”. 3 pm is not a physical place, but we use the word AT to describe our relation to it.</p>
+
+<p>The idea of spatial metaphors goes back hundreds of years. For instance, look at this sonnet written by Shakespeare:</p>
+
+<p>To Jade</p>
+
+<p>Sweet Jade, by whom my transient hopes are dash’d,
+To whom persistent fools attend in constant thrall,
+Woulds’t not enmesh me in thy web,
+That I may browse the fairest form of all?
+And tho’ an object not of thy class,
+Whose primitive root excites no deference,
+Still dare I hope, as Time doth pass,
+Thy hidden attributes to reference.
+Such vain collections of idle loons
+Do dote upon thy treasur’d face,
+Shall I then be class’d with these poltroons,
+And, tarr’d by their methods, invite disgrace?</p>
+
+<p>Spring me, sweeting, from this fever’d trap,
+Or cast me forth to roam the global map.</p>
+
+<p>Here, the speaker is comparing two Objects, one of great beauty and the other disgraced. The specificity of the language that Shakespeare uses helps to shed light on what each object represents.</p>
+
+<p>OOP uses physical metaphors to help us interact with abstract ideas.</p>
+
+<p>We can look to another quote by Shakespeare to see how this specifically relates to OOP.</p>
+
+<p>“suit the action to the word, the word to the action”…Hamlet Act 3, SC 2</p>
+
+<p>Defining our classes and methods with concise, impactful language gives our Objects dynamic meaning and helps the programmer to communicate their intent.</p>
+
+<p>When refactoring code from  my CLI Hangman game, I found myself dwelling on what each class should be named and what it did.</p>
+
+<p>For instance, I began by thinking that the Game class should be responsible for player guesses. But when refactoring, I began to think that a separate Player class should be responsible for the guess. After all, say the intent in an english sentence: “The PLAYER guesses the Letter for the game.”</p>
+
+<p>I anticipate that as we move forward with MVC, naming classes will become critical the creating concise descriptive code. When studying Ruby Naming Conventions the idea came to mind of a database of Synonyms and Etymology for commonly used method and class names would be extremely helpful in choosing exactly the right word for the Object or process I am trying to describe. I look forward to the challenge of getting better at naming in my code.</p>
 ]]></content>
   </entry>
   
