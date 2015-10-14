@@ -9,7 +9,7 @@
 
 <meta name="author" content="Daniel Glatstein"> 
 
-<meta name="description" content="Spatial metaphors permeate our thoughts and language. Take the phrase “the meeting is AT 3”. 3 pm is not a physical place, but we use the word AT to &hellip;"> <meta name="keywords" content="">
+<meta name="description" content="Spatial metaphors permeate our thoughts and language. Analyzing a common phrase will proove this point. “the meeting is AT 3”. 3 pm is not a &hellip;"> <meta name="keywords" content="">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -107,43 +107,96 @@ $(document).ready(
 			My First Post on Octopress</a>
 	</h2>
 	<div class="entry-content">
-		<p>Spatial metaphors permeate our thoughts and language. Take the phrase “the meeting is AT 3”. 3 pm is not a physical place, but we use the word AT to describe our relation to it.</p>
+		<p>Spatial metaphors permeate our thoughts and language.</p>
 
-<p>The idea of spatial metaphors goes back hundreds of years. For instance, look at this sonnet written by Shakespeare:</p>
+<p>Analyzing a common phrase will proove this point.</p>
 
-<p>To Jade</p>
+<blockquote>“the meeting is <b>AT</b> 3”. </blockquote>
 
-<p>Sweet Jade, by whom my transient hopes are dash’d,
-To whom persistent fools attend in constant thrall,
-Woulds’t not enmesh me in thy web,
-That I may browse the fairest form of all?
-And tho’ an object not of thy class,
-Whose primitive root excites no deference,
-Still dare I hope, as Time doth pass,
-Thy hidden attributes to reference.
-Such vain collections of idle loons
-Do dote upon thy treasur’d face,
-Shall I then be class’d with these poltroons,
-And, tarr’d by their methods, invite disgrace?</p>
 
-<p>Spring me, sweeting, from this fever’d trap,
-Or cast me forth to roam the global map.</p>
+<p>3 pm is not a physical place, but we use the word <b>AT</b> to describe our relation to it.</p>
+
+<p>The idea of language and space are inexplicably tied together and are integral for us to be able to communicate with one another. Take for example this Ghanaian commercial from 2009 for Blink Wireless:</p>
+
+<p><video width="320" height="240" controls>
+  <source src="../images/blink_sd.mp4" type="video/mp4">
+</video></p>
+
+<p>The idea of spatial metaphors goes back hundreds of years. For instance, this sonnet written by Shakespeare emphasizes the difference between he and the woman he desires by describing the two distinctly different spaces they inhabit:</p>
+
+<blockquote>
+To Jade<br>
+Sweet Jade, by whom my transient hopes are dash’d,<br>
+To whom persistent fools attend in constant thrall,<br>
+Woulds’t not enmesh me in thy web,<br>
+That I may browse the fairest form of all?<br>
+<b>And tho’ an object not of thy class</b>,<br>
+Whose primitive root excites no deference,<br>
+Still dare I hope, as Time doth pass,<br>
+Thy hidden attributes to reference.<br>
+Such vain collections of idle loons<br>
+Do dote upon thy treasur’d face,<br>
+<b>Shall I then be class’d with these poltroons</b>,<br>
+<b>And, tarr’d by their methods, invite disgrace?</b><br>
+<br>
+Spring me, sweeting, from this fever’d trap,<br>
+Or cast me forth to roam the global map.
+</blockquote>
+
 
 <p>Here, the speaker is comparing two Objects, one of great beauty and the other disgraced. The specificity of the language that Shakespeare uses helps to shed light on what each object represents.</p>
 
 <p>OOP uses physical metaphors to help us interact with abstract ideas.</p>
 
-<p>We can look to another quote by Shakespeare to see how this specifically relates to OOP.</p>
-
-<p>“suit the action to the word, the word to the action”…Hamlet Act 3, SC 2</p>
-
 <p>Defining our classes and methods with concise, impactful language gives our Objects dynamic meaning and helps the programmer to communicate their intent.</p>
 
-<p>When refactoring code from  my CLI Hangman game, I found myself dwelling on what each class should be named and what it did.</p>
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">player_stats</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+</span><span class='line'> <span class="n">game_hash</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span>
+</span><span class='line'>   <span class="n">value</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="o">|</span>
+</span><span class='line'>     <span class="n">v</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">stuff</span><span class="p">,</span> <span class="n">more_stuff</span><span class="o">|</span>
+</span><span class='line'>       <span class="k">if</span> <span class="n">stuff</span> <span class="o">==</span> <span class="nb">name</span>
+</span><span class='line'>         <span class="k">return</span> <span class="n">more_stuff</span>
+</span><span class='line'>       <span class="k">end</span>
+</span><span class='line'>     <span class="k">end</span>
+</span><span class='line'>   <span class="k">end</span>
+</span><span class='line'> <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
 
-<p>For instance, I began by thinking that the Game class should be responsible for player guesses. But when refactoring, I began to think that a separate Player class should be responsible for the guess. After all, say the intent in an english sentence: “The PLAYER guesses the Letter for the game.”</p>
 
-<p>I anticipate that as we move forward with MVC, naming classes will become critical the creating concise descriptive code. When studying Ruby Naming Conventions the idea came to mind of a database of Synonyms and Etymology for commonly used method and class names would be extremely helpful in choosing exactly the right word for the Object or process I am trying to describe. I look forward to the challenge of getting better at naming in my code.</p>
+<p>If someone unfamiliar with the code were to look at this method, it would be hard to see what the data any of the iterations were operating on.</p>
+
+<p>After learning to define my methods more clearly the code came out something like this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">player_stats</span><span class="p">(</span><span class="n">player_name</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">player</span> <span class="o">=</span> <span class="n">find_player</span><span class="p">(</span><span class="n">player_name</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">player</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="ss">:player_name</span><span class="p">)</span>
+</span><span class='line'>  <span class="n">player</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Refactoring my code had a similiar affect on my CLI Hangman game.</p>
+
+<p>My initial outline of the application charged the Game class to be responsible for the Player&rsquo;s guesses. However, while refactoring I began to think that a separate Player class should be responsible for the guess. After all, when describing my intent in an english sentence I would say, “The <b>player</b> guesses the <b>letter</b> that will be printed in the <b>game</b>.”</p>
+
+<p>I anticipate that as the cohort moves forward with MVC, naming classes will become critical the creating concise descriptive code. In the future, I would love to start a database of synonyms and the etymology for commonly used method and class names. This database would serve as an extremely helpful tool towards choosing exactly the right word for the Object and/or process that I am trying to describe. I eagerly await the challenge ahead to get better at naming in my code.</p>
 
 		
 		
