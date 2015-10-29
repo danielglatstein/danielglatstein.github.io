@@ -4,7 +4,7 @@
   <title><![CDATA[Category: school | Daniel Glatstein's Blog]]></title>
   <link href="http://danielglatstein.github.io/blog/categories/school/atom.xml" rel="self"/>
   <link href="http://danielglatstein.github.io/"/>
-  <updated>2015-10-28T20:41:03-04:00</updated>
+  <updated>2015-10-28T20:44:51-04:00</updated>
   <id>http://danielglatstein.github.io/</id>
   <author>
     <name><![CDATA[Daniel Glatstein]]></name>
@@ -39,7 +39,7 @@
 
 <p>  However&hellip;when I launched up the server and created a new post whose tags exclusively included preexisting ones I got this:</p>
 
-<p>  <img src="../images/empty_string.png"></p>
+<p>  <img src="./images/empty_string.png"></p>
 
 <p>  D'oh, my Tag name was passed into the unordered list on the Posts show page.</p>
 
