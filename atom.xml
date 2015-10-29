@@ -4,7 +4,7 @@
   <title><![CDATA[Daniel Glatstein's Blog]]></title>
   <link href="http://danielglatstein.github.io/atom.xml" rel="self"/>
   <link href="http://danielglatstein.github.io/"/>
-  <updated>2015-10-28T20:51:57-04:00</updated>
+  <updated>2015-10-28T20:55:08-04:00</updated>
   <id>http://danielglatstein.github.io/</id>
   <author>
     <name><![CDATA[Daniel Glatstein]]></name>
@@ -82,7 +82,7 @@
 
 <p>  So the second way of skining this cat was to create a private method in my Post model that I could call on:</p>
 
-<pre><code class="``Ruby">    class Post
+<pre><code class="``ruby">    class Post
       accepts_nested_attributes_for :tags reject_if: :blank_name?
 
       private

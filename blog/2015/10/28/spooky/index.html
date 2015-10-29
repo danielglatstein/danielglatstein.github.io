@@ -162,7 +162,7 @@ $(document).ready(
 
 <p>  So the second way of skining this cat was to create a private method in my Post model that I could call on:</p>
 
-<pre><code class="``Ruby">    class Post
+<pre><code class="``ruby">    class Post
       accepts_nested_attributes_for :tags reject_if: :blank_name?
 
       private
