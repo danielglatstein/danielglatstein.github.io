@@ -4,7 +4,7 @@
   <title><![CDATA[Daniel Glatstein's Blog]]></title>
   <link href="http://danielglatstein.github.io/atom.xml" rel="self"/>
   <link href="http://danielglatstein.github.io/"/>
-  <updated>2015-10-28T20:50:22-04:00</updated>
+  <updated>2015-10-28T20:51:57-04:00</updated>
   <id>http://danielglatstein.github.io/</id>
   <author>
     <name><![CDATA[Daniel Glatstein]]></name>
@@ -73,7 +73,7 @@
 
 <p>  The first thing that the google-machine returned for me was a reject_if clause that would go in toPost model:</p>
 
-<pre><code class="``Ruby">    class Post
+<pre><code class="``ruby">    class Post
       accepts_nested_attributes_for :tags, reject_if: proc { |attributes| attributes[:name].blank? }
     end
 </code></pre>
@@ -97,7 +97,7 @@
 
 <p>  The third solution that I thought of to solve this problem was to write out a tag_attributes=() method myself, thereby replacing the accepts_nested_attributes_for.</p>
 
-<pre><code>```Ruby
+<pre><code>```ruby
   class Post
 
     private

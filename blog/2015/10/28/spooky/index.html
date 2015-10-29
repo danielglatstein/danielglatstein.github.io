@@ -153,7 +153,7 @@ $(document).ready(
 
 <p>  The first thing that the google-machine returned for me was a reject_if clause that would go in toPost model:</p>
 
-<pre><code class="``Ruby">    class Post
+<pre><code class="``ruby">    class Post
       accepts_nested_attributes_for :tags, reject_if: proc { |attributes| attributes[:name].blank? }
     end
 </code></pre>
@@ -177,7 +177,7 @@ $(document).ready(
 
 <p>  The third solution that I thought of to solve this problem was to write out a tag_attributes=() method myself, thereby replacing the accepts_nested_attributes_for.</p>
 
-<pre><code>```Ruby
+<pre><code>```ruby
   class Post
 
     private
