@@ -4,7 +4,7 @@
   <title><![CDATA[Category: school | Daniel Glatstein's Blog]]></title>
   <link href="http://danielglatstein.github.io/blog/categories/school/atom.xml" rel="self"/>
   <link href="http://danielglatstein.github.io/"/>
-  <updated>2015-10-28T20:55:08-04:00</updated>
+  <updated>2015-10-29T09:11:24-04:00</updated>
   <id>http://danielglatstein.github.io/</id>
   <author>
     <name><![CDATA[Daniel Glatstein]]></name>
@@ -22,7 +22,9 @@
 
 <p>While working on a lab, there was a problem that was particularly illuminating on how Rails abstracts away code that the programmer would otherwise have to write themselves in Ruby.</p>
 
-<p>In the Rails-Blog-Nested-Forms lab, I was able to add collection_check_boxes to my Post form (which in itself is an awesome abstraction).</p>
+<p>The lab asked the engineer to build a blog with many Posts, which could have multiple tags. Each tag had to have a unique name and the user should be able to create their own unique tag.</p>
+
+<p>I was able to add collection_check_boxes to my Post form (which in itself is an awesome abstraction).</p>
 
 <pre><code class="``ruby">  &lt;%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %&gt;
 </code></pre>
@@ -60,11 +62,9 @@
 
 <p>  My first reaction was to write a method that would serve as validation for a Tag&rsquo;s name along the lines of this:</p>
 
-<pre><code class="``ruby">    def empty_name(post)
-      post.tags.each do |tag|
-        if tag.name == ""
-          delete the tag 
-        end
+<pre><code class="``ruby">    def empty_name(post_attr)
+      post_attr.hash.map do |label, name_hash|
+        name_hash.delete_if{|label, name| name == ""}
       end
     end
 </code></pre>
@@ -99,7 +99,7 @@
 
 <pre><code>```ruby
   class Post
-
+    #attributes = {"tag_1"=&gt;{"name"=&gt;"WW1"}, "tag_2"=&gt;{"name"=&gt;"WW2"}, "tag_3"=&gt;""}
     private
 
     def courses_attributes=(attributes)
