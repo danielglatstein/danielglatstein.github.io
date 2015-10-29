@@ -27,7 +27,7 @@ The next step was to add a text_field at the end of this list of tags, in order 
   ```
   However...when I launched up the server and created a new post whose tags exclusively included preexisting ones I got this:
 
-  <img src="../images/empty_string.png">
+  <img src="../images/empty_string.png" height="150" width="150">
 
   D'oh, my Tag name was passed into the unordered list on the Posts show page. 
 
