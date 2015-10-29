@@ -5,7 +5,7 @@
 	<script data-cfasync="false" type="text/javascript" src="//use.typekit.net/axj3cfp.js"></script>
 	<script data-cfasync="false" type="text/javascript">try{Typekit.load();}catch(e){}</script>
 	<meta charset="utf-8">
-	<title>Newly Born Rubyist // Lifelong Dodger Fan  | Daniel Glatstein's Blog</title>
+	<title>Spooky  | Daniel Glatstein's Blog</title>
 
 <meta name="author" content="Daniel Glatstein"> 
 
@@ -96,18 +96,9 @@ $(document).ready(
 
 </header>
 
-	<div id="content" class="inner">
-
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2015/10/28/spooky/">
-		
-			Spooky</a>
-	</h2>
-	<div class="entry-content">
-		<p>This week I was introduced to Rails, and there has been a whirlwind of new information and abstractions.</p>
+	<div id="content" class="inner"><article class="post">
+	<h2 class="title">Spooky</h2>
+	<div class="entry-content"><p>This week I was introduced to Rails, and there has been a whirlwind of new information and abstractions.</p>
 
 <p>While working on a lab, there was a problem that was particularly illuminating on how Rails abstracts away code that the programmer would otherwise have to write themselves in Ruby.</p>
 
@@ -201,10 +192,7 @@ $(document).ready(
 </code></pre>
 
 <p>  The amazing thing about programming is that it involves a lot of creativity and decision making. This problem was a great example to me of how one problem could be solved in many different ways, each with pros and cons. It is extremely valuable to someone like myself, who is new to Ruby on Rails, to learn from trial by fire. By experimenting as much as I can, and by attempting to explore the pros and cons of every solution I am helping myself to recognize patterns in the future, thereby making it easier to debug future applications.</p>
-
-		
-		
-	</div>
+</div>
 
 
 <div class="meta">
@@ -233,142 +221,20 @@ $(document).ready(
 	
 </div></article>
 
-
-    <article class="post">
-	<h2 class="title">
-		
-		<a href="/blog/2015/09/28/my-first-post-on-octopress/">
-		
-			My First Post on Octopress</a>
-	</h2>
-	<div class="entry-content">
-		<p>Spatial metaphors permeate our thoughts and language.</p>
-
-<p>Analyzing a common phrase will proove this point.</p>
-
-<blockquote>“the meeting is <b>AT</b> 3”. </blockquote>
-
-
-<p>3 pm is not a physical place, but we use the word <b>AT</b> to describe our relation to it.</p>
-
-<p>The idea of language and space are inexplicably tied together and are integral for us to be able to communicate with one another. Take for example this Ghanaian commercial from 2009 for Blink Wireless:</p>
-
-<p><video width="320" height="240" controls>
-  <source src="../images/blink_sd.mp4" type="video/mp4">
-</video></p>
-
-<p>The idea of spatial metaphors goes back hundreds of years. For instance, this sonnet written by Shakespeare emphasizes the difference between he and the woman he desires by describing the two distinctly different spaces they inhabit:</p>
-
-<blockquote>
-To Jade<br>
-Sweet Jade, by whom my transient hopes are dash’d,<br>
-To whom persistent fools attend in constant thrall,<br>
-Woulds’t not enmesh me in thy web,<br>
-That I may browse the fairest form of all?<br>
-<b>And tho’ an object not of thy class</b>,<br>
-Whose primitive root excites no deference,<br>
-Still dare I hope, as Time doth pass,<br>
-Thy hidden attributes to reference.<br>
-Such vain collections of idle loons<br>
-Do dote upon thy treasur’d face,<br>
-<b>Shall I then be class’d with these poltroons</b>,<br>
-<b>And, tarr’d by their methods, invite disgrace?</b><br>
-<br>
-Spring me, sweeting, from this fever’d trap,<br>
-Or cast me forth to roam the global map.
-</blockquote>
-
-
-<p>Here, the speaker is comparing two Objects, one of great beauty and the other disgraced. The specificity of the language that Shakespeare uses helps to shed light on what each object represents.</p>
-
-<p>OOP uses physical metaphors to help us interact with abstract ideas.</p>
-
-<p>Defining our classes and methods with concise, impactful language gives our Objects dynamic meaning and helps the programmer to communicate their intent.</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">player_stats</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
-</span><span class='line'> <span class="n">game_hash</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">key</span><span class="p">,</span> <span class="n">value</span><span class="o">|</span>
-</span><span class='line'>   <span class="n">value</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">k</span><span class="p">,</span> <span class="n">v</span><span class="o">|</span>
-</span><span class='line'>     <span class="n">v</span><span class="o">.</span><span class="n">each</span> <span class="k">do</span> <span class="o">|</span><span class="n">stuff</span><span class="p">,</span> <span class="n">more_stuff</span><span class="o">|</span>
-</span><span class='line'>       <span class="k">if</span> <span class="n">stuff</span> <span class="o">==</span> <span class="nb">name</span>
-</span><span class='line'>         <span class="k">return</span> <span class="n">more_stuff</span>
-</span><span class='line'>       <span class="k">end</span>
-</span><span class='line'>     <span class="k">end</span>
-</span><span class='line'>   <span class="k">end</span>
-</span><span class='line'> <span class="k">end</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>If someone unfamiliar with the code were to look at this method, it would be hard to see what the data any of the iterations were operating on.</p>
-
-<p>After learning to define my methods more clearly the code came out something like this:</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">player_stats</span><span class="p">(</span><span class="n">player_name</span><span class="p">)</span>
-</span><span class='line'>  <span class="n">player</span> <span class="o">=</span> <span class="n">find_player</span><span class="p">(</span><span class="n">player_name</span><span class="p">)</span>
-</span><span class='line'>  <span class="n">player</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span><span class="ss">:player_name</span><span class="p">)</span>
-</span><span class='line'>  <span class="n">player</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Refactoring my code had a similiar affect on my CLI Hangman game.</p>
-
-<p>My initial outline of the application charged the Game class to be responsible for the Player&rsquo;s guesses. However, while refactoring I began to think that a separate Player class should be responsible for the guess. After all, when describing my intent in an english sentence I would say, “The <b>player</b> guesses the <b>letter</b> that will be printed in the <b>game</b>.”</p>
-
-<p>I anticipate that as the cohort moves forward with MVC, naming classes will become critical the creating concise descriptive code. In the future, I would love to start a database of synonyms and the etymology for commonly used method and class names. This database would serve as an extremely helpful tool towards choosing exactly the right word for the Object and/or process that I am trying to describe. I eagerly await the challenge ahead to get better at naming in my code.</p>
-
-		
-		
-	</div>
-
-
-<div class="meta">
-	<div class="date">
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2015-09-28T17:46:20-04:00" pubdate data-updated="true"></time></div>
+	<div class="share">
+	<div class="addthis_toolbox addthis_default_style ">
 	
-
-<div class="tags">
-
-	<a class='category' href='/blog/categories/flatiron/'>flatiron</a>, <a class='category' href='/blog/categories/school/'>school</a>
-
+	
+	<a class="addthis_button_tweet"></a>
+	
+	
+<!---	<a class="addthis_counter addthis_pill_style"></a> --->
+	</div>
+  <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid="></script>
 </div>
 
 
-	
-</div></article>
-
-<nav id="pagenavi">
-    
-    
-    <div class="center"><a href="/archives">Blog Archives</a></div>
-</nav></div>
+</div>
 	<footer id="footer" class="inner">Copyright &copy; 2015
 
     Daniel Glatstein

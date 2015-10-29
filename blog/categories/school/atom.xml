@@ -4,7 +4,7 @@
   <title><![CDATA[Category: school | Daniel Glatstein's Blog]]></title>
   <link href="http://danielglatstein.github.io/blog/categories/school/atom.xml" rel="self"/>
   <link href="http://danielglatstein.github.io/"/>
-  <updated>2015-10-14T09:09:04-04:00</updated>
+  <updated>2015-10-28T20:41:03-04:00</updated>
   <id>http://danielglatstein.github.io/</id>
   <author>
     <name><![CDATA[Daniel Glatstein]]></name>
@@ -12,6 +12,108 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Spooky]]></title>
+    <link href="http://danielglatstein.github.io/blog/2015/10/28/spooky/"/>
+    <updated>2015-10-28T18:22:54-04:00</updated>
+    <id>http://danielglatstein.github.io/blog/2015/10/28/spooky</id>
+    <content type="html"><![CDATA[<p>This week I was introduced to Rails, and there has been a whirlwind of new information and abstractions.</p>
+
+<p>While working on a lab, there was a problem that was particularly illuminating on how Rails abstracts away code that the programmer would otherwise have to write themselves in Ruby.</p>
+
+<p>In the Rails-Blog-Nested-Forms lab, I was able to add collection_check_boxes to my Post form (which in itself is an awesome abstraction).</p>
+
+<pre><code class="``ruby">  &lt;%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %&gt;
+</code></pre>
+
+<p>The next step was to add a text_field at the end of this list of tags, in order to allow the user the opportunity to generate their own unique tag for their Post by adding a field_for Tags form to my form_for Post.</p>
+
+<pre><code class="``ruby ">  &lt;%= f.fields_for :tags, Tag.new do |tags_form| %&gt;
+      &lt;li&gt;
+        &lt;%= tags_form.label :name %&gt;
+        &lt;%= tags_form.text_field :name %&gt;
+      &lt;/li&gt;
+  &lt;% end %&gt;
+</code></pre>
+
+<p>  However&hellip;when I launched up the server and created a new post whose tags exclusively included preexisting ones I got this:</p>
+
+<p>  <img src="../images/empty_string.png"></p>
+
+<p>  D'oh, my Tag name was passed into the unordered list on the Posts show page.</p>
+
+<p>  So I started to troubleshoot the bug by adding a raise in the create action of my PostsController in order to see the paramaters that were being returned:</p>
+
+<pre><code class="``ruby">    class PostsController
+      def create
+        raise
+        @post = Post.new(post_params)
+      end
+    end
+</code></pre>
+
+<pre><code class="``ruby">    "post"=&gt;{"name"=&gt;"bbq", "content"=&gt;"healthy living", "tag_ids"=&gt;["2", "13", ""], "tags_attributes"=&gt;{"0"=&gt;{"name"=&gt;""}}}, "commit"=&gt;"Create Post", "controller"=&gt;"posts", "action"=&gt;"create"
+</code></pre>
+
+<p>  And there it is! tags_attributes is passing {name => &ldquo;&rdquo;}.</p>
+
+<p>  My first reaction was to write a method that would serve as validation for a Tag&rsquo;s name along the lines of this:</p>
+
+<pre><code class="``ruby">    def empty_name(post)
+      post.tags.each do |tag|
+        if tag.name == ""
+          delete the tag 
+        end
+      end
+    end
+</code></pre>
+
+<p>  But, if the point of Rails is convention over configuration, the framework should provide a method that would make this much easier.</p>
+
+<p>  The first thing that the google-machine returned for me was a reject_if clause that would go in toPost model:</p>
+
+<pre><code class="``Ruby">    class Post
+      accepts_nested_attributes_for :tags, reject_if: proc { |attributes| attributes[:name].blank? }
+    end
+</code></pre>
+
+<p>  Amazing! I actually used a Proc! But, to me this isn&rsquo;t super readable.</p>
+
+<p>  So the second way of skining this cat was to create a private method in my Post model that I could call on:</p>
+
+<pre><code class="``Ruby">    class Post
+      accepts_nested_attributes_for :tags reject_if: :blank_name?
+
+      private
+
+      def blank_name?(attribute)
+        attribute['name'].blank?
+      end
+    end
+</code></pre>
+
+<p>  This is nice and readable and is hiding a lot behind the scenes. Which isn&rsquo;t necessarily a good thing.</p>
+
+<p>  The third solution that I thought of to solve this problem was to write out a tag_attributes=() method myself, thereby replacing the accepts_nested_attributes_for.</p>
+
+<pre><code>```Ruby
+  class Post
+
+    private
+
+    def courses_attributes=(attributes)
+      attributes.each do |tag_hash|
+        self.courses.build(tag_hash) if tag_hash[:name].present?
+      end
+    end
+  end
+```
+</code></pre>
+
+<p>  The amazing thing about programming is that it involves a lot of creativity and decision making. This problem was a great example to me of how one problem could be solved in many different ways, each with pros and cons. It is extremely valuable to someone like myself, who is new to Ruby on Rails, to learn from trial by fire. By experimenting as much as I can, and by attempting to explore the pros and cons of every solution I am helping myself to recognize patterns in the future, thereby making it easier to debug future applications.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[My First Post On Octopress]]></title>
