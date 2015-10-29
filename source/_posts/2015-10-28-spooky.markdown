@@ -9,7 +9,9 @@ This week I was introduced to Rails, and there has been a whirlwind of new infor
 
 While working on a lab, there was a problem that was particularly illuminating on how Rails abstracts away code that the programmer would otherwise have to write themselves in Ruby. 
 
-In the Rails-Blog-Nested-Forms lab, I was able to add collection_check_boxes to my Post form (which in itself is an awesome abstraction). 
+The lab asked the engineer to build a blog with many Posts, which could have multiple tags. Each tag had to have a unique name and the user should be able to create their own unique tag.
+
+I was able to add collection_check_boxes to my Post form (which in itself is an awesome abstraction). 
 
   ```ruby
   <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name %>
@@ -51,11 +53,9 @@ The next step was to add a text_field at the end of this list of tags, in order 
   My first reaction was to write a method that would serve as validation for a Tag's name along the lines of this:  
 
   ```ruby
-    def empty_name(post)
-      post.tags.each do |tag|
-        if tag.name == ""
-          delete the tag 
-        end
+    def empty_name(post_attr)
+      post_attr.hash.map do |label, name_hash|
+        name_hash.delete_if{|label, name| name == ""}
       end
     end
   ```
@@ -92,7 +92,7 @@ The next step was to add a text_field at the end of this list of tags, in order 
 
     ```ruby
       class Post
-
+        #attributes = {"tag_1"=>{"name"=>"WW1"}, "tag_2"=>{"name"=>"WW2"}, "tag_3"=>""}
         private
 
         def courses_attributes=(attributes)
