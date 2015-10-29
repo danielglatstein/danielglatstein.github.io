@@ -64,7 +64,7 @@ The next step was to add a text_field at the end of this list of tags, in order 
 
   The first thing that the google-machine returned for me was a reject_if clause that would go in toPost model: 
 
-  ```Ruby
+  ```ruby
     class Post
       accepts_nested_attributes_for :tags, reject_if: proc { |attributes| attributes[:name].blank? }
     end
@@ -74,7 +74,7 @@ The next step was to add a text_field at the end of this list of tags, in order 
 
   So the second way of skining this cat was to create a private method in my Post model that I could call on: 
 
-  ```Ruby
+  ```ruby
     class Post
       accepts_nested_attributes_for :tags reject_if: :blank_name?
       
@@ -90,7 +90,7 @@ The next step was to add a text_field at the end of this list of tags, in order 
 
   The third solution that I thought of to solve this problem was to write out a tag_attributes=() method myself, thereby replacing the accepts_nested_attributes_for. 
 
-    ```Ruby
+    ```ruby
       class Post
 
         private
