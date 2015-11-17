@@ -4,7 +4,7 @@
   <title><![CDATA[Daniel Glatstein's Blog]]></title>
   <link href="http://danielglatstein.github.io/atom.xml" rel="self"/>
   <link href="http://danielglatstein.github.io/"/>
-  <updated>2015-11-17T09:00:24-05:00</updated>
+  <updated>2015-11-17T09:01:34-05:00</updated>
   <id>http://danielglatstein.github.io/</id>
   <author>
     <name><![CDATA[Daniel Glatstein]]></name>
@@ -81,8 +81,8 @@ and add your stylings!</p>
 <p>Here are some helpful links:</p>
 
 <ul>
-  <li> <a href="http://edgeguides.rubyonrails.org/asset_pipeline.html"></a></li>
-  <li><a href="http://railscasts.com/episodes/279-understanding-the-asset-pipeline"></a></li>
+  <li> <a href="http://edgeguides.rubyonrails.org/asset_pipeline.html">http://edgeguides.rubyonrails.org/asset_pipeline.html</a></li>
+  <li><a href="http://railscasts.com/episodes/279-understanding-the-asset-pipeline">http://railscasts.com/episodes/279-understanding-the-asset-pipeline</a></li>
 </ul>
 
 ]]></content>
