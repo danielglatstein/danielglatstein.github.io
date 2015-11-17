@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://danielglatstein.github.io/blog/2015/11/17/rails-asset-pipeline/</loc>
+    <lastmod>2015-11-17T08:28:33-05:00</lastmod>
+  </url>
+  <url>
     <loc>http://danielglatstein.github.io/blog/2015/10/28/spooky/</loc>
     <lastmod>2015-10-28T18:22:54-04:00</lastmod>
   </url>

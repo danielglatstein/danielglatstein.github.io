@@ -9,7 +9,7 @@
 
 <meta name="author" content="Daniel Glatstein"> 
 
-<meta name="description" content="This week I was introduced to Rails, and there has been a whirlwind of new information and abstractions. While working on a lab, there was a problem &hellip;"> <meta name="keywords" content="">
+<meta name="description" content="Understanding the Rails Asset Pipeline is critical to creating a polished application. For a recent project I struggled with making a video a &hellip;"> <meta name="keywords" content="">
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -97,6 +97,108 @@ $(document).ready(
 </header>
 
 	<div id="content" class="inner">
+
+
+    <article class="post">
+	<h2 class="title">
+		
+		<a href="/blog/2015/11/17/rails-asset-pipeline/">
+		
+			Rails Asset Pipeline</a>
+	</h2>
+	<div class="entry-content">
+		<p>Understanding the Rails Asset Pipeline is critical to creating a polished application.</p>
+
+<p>For a recent project I struggled with making a video a fullscreen background image for a landing page, and then overlaying that video with text.</p>
+
+<p>After tangling with several JS libraries, it was the Rails Asset Pipeline that, well, save my a$$.</p>
+
+<p>The asset pipeline uses a technique called fingerprinting, which makes the name of a file dependent on the contents of the file. When the file contents change, the filename is also changed. For content that is static or infrequently changed, this provides an easy way to tell whether two versions of a file are identical, even across different servers or deployment dates.</p>
+
+<p>The asset pipeline automatically evaluates ERB. This means helpers like asset_path are available in your CSS rules.</p>
+
+<p>So back to the problem:</p>
+
+<p>The HTML we want is something like this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="n">video</span> <span class="n">autoplay</span> <span class="kp">loop</span> <span class="nb">id</span><span class="o">=</span><span class="s2">&quot;home-video&quot;</span><span class="o">&gt;</span>
+</span><span class='line'>    <span class="o">&lt;</span><span class="n">source</span> <span class="n">src</span><span class="o">=</span><span class="s2">&quot;./app/assets/images/home.jpg&quot;</span> <span class="n">type</span><span class="o">=</span><span class="s2">&quot;video/mp4&quot;</span><span class="o">&gt;</span>
+</span><span class='line'><span class="o">&lt;</span><span class="sr">/video&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>However when running this, the browser will look for the incorrect URL because of Rails Fingerprinting.</p>
+
+<p>Instead, one would want to take advantage of the asset pipeline with a video_tag.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="o">&lt;</span><span class="sx">%= video_tag &quot;home.mp4&quot;, :controls =</span><span class="o">&gt;</span> <span class="kp">false</span><span class="p">,</span> <span class="ss">:autobuffer</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">:autoplay</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">:loop</span> <span class="o">=&gt;</span> <span class="kp">true</span><span class="p">,</span> <span class="ss">:id</span> <span class="o">=&gt;</span> <span class="s2">&quot;home-video&quot;</span><span class="o">%&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Now, in the Stylesheet you can select #home-video
+and add your stylings!</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="n">z</span><span class="o">-</span><span class="ss">index</span><span class="p">:</span> <span class="o">-</span><span class="mi">999</span><span class="p">;</span>
+</span><span class='line'>  <span class="n">min</span><span class="o">-</span><span class="ss">height</span><span class="p">:</span> <span class="mi">100</span><span class="sx">%;</span>
+</span><span class='line'><span class="sx">  min-width: 1024px;</span>
+</span><span class='line'>  <span class="ss">width</span><span class="p">:</span> <span class="mi">100</span><span class="sx">%;</span>
+</span><span class='line'><span class="sx">  height: auto;</span>
+</span><span class='line'>  <span class="ss">position</span><span class="p">:</span> <span class="n">fixed</span><span class="p">;</span>
+</span><span class='line'>  <span class="ss">top</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>  <span class="ss">left</span><span class="p">:</span> <span class="mi">0</span><span class="p">;</span>
+</span><span class='line'>  <span class="ss">opacity</span><span class="p">:</span> <span class="mi">0</span><span class="o">.</span><span class="mi">8</span><span class="p">;</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Here are some helpful links:</p>
+
+<ul>
+  <li> http://edgeguides.rubyonrails.org/asset_pipeline.html</li>
+  <li>http://railscasts.com/episodes/279-understanding-the-asset-pipeline</li>
+</ul>
+
+
+		
+		
+	</div>
+
+
+<div class="meta">
+	<div class="date">
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-11-17T08:28:33-05:00" pubdate data-updated="true"></time></div>
+	
+
+
+	
+</div></article>
 
 
     <article class="post">
